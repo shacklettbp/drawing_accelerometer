@@ -51,8 +51,8 @@ public class CanvasView extends View {
 //        }
 
 
-            for (int i = -radius; i < radius; i++) {
-                for (int j = -radius; j < radius; j++) {
+            for (int i = -1*radius; i < radius; i++) {
+                for (int j = -1*radius; j < radius; j++) {
                     if (x + i >= 0 && y + j >= 0) {
                         bitmap.setPixel((int) x + i, (int) y + j, color);
                     }
