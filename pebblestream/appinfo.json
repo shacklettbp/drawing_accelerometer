@@ -1,0 +1,20 @@
+{
+  "uuid": "2893b0c4-2bca-4c83-a33a-0ef6ba6c8b17",
+  "shortName": "PebbleStream",
+  "longName": "PebbleStream",
+  "companyName": "Awesome Team",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "KEY_START": 0,
+    "KEY_X": 0,
+    "KEY_Y": 1,
+    "KEY_Z": 2
+  },
+  "resources": {
+    "media": []
+  }
+}
