@@ -17,9 +17,10 @@ public class CanvasView extends View {
 
     private Vector<Float> mVectorX;
     private Vector<Float> mVectorY;
-    private float x = 10;
-    private float y = 10;
+    private float x = 0;
+    private float y = 0;
     private Bitmap bitmap;
+    private int size_of_square = 5;
 
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -29,6 +30,9 @@ public class CanvasView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+        //gets rid of the original square
+        if (x == 0 && y == 0) return;
 
         Paint black = new Paint();
 
@@ -49,15 +53,15 @@ public class CanvasView extends View {
 //        }
 
 
-            for (int i = -5; i < 5; i++) {
-                for (int j = -5; j < 5; j++) {
+            for (int i = -size_of_square; i < size_of_square; i++) {
+                for (int j = -size_of_square; j < size_of_square; j++) {
                     if (x + i >= 0 && y + j >= 0) {
                         bitmap.setPixel((int) x + i, (int) y + j, color);
                     }
                 }
             }
 
-        Log.d(TAG, "Height: " + canvas.getHeight() + ", Width: " + canvas.getWidth());
+        //Log.d(TAG, "Height: " + canvas.getHeight() + ", Width: " + canvas.getWidth());
         canvas.drawBitmap(bitmap, 0, 0, black);
     }
 
