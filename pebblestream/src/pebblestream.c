@@ -72,6 +72,7 @@ static void out_sent_handler(DictionaryIterator *iter, void *context)
 	snprintf(buffs[0], sizeof("X: XXXXX"), "X: %d", latest_data[0]);
 	snprintf(buffs[1], sizeof("Y: YYYYY"), "Y: %d", latest_data[1]);
 	snprintf(buffs[2], sizeof("Z: ZZZZZ"), "Z: %d", latest_data[2]);
+
 	text_layer_set_text(x_layer, buffs[0]);
 	text_layer_set_text(y_layer, buffs[1]);
 	text_layer_set_text(z_layer, buffs[2]);
