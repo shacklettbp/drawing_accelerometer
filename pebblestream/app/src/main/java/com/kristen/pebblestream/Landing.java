@@ -163,8 +163,8 @@ public class Landing extends Activity {
                 Log.d(TAG, "X: " + pos_x + ", Y: " + pos_y);
 
                 // positions in canvas axis are switched
-                mCanvasView.addX(pos_y);
-                mCanvasView.addY(pos_x);
+                mCanvasView.setX(pos_y);
+                mCanvasView.setY(pos_x);
 
 //                mCanvasView.setX(pos_x);
 //                mCanvasView.setY(pos_y);

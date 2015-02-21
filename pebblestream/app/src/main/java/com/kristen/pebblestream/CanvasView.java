@@ -2,9 +2,12 @@ package com.kristen.pebblestream;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.Vector;
 
@@ -16,37 +19,55 @@ public class CanvasView extends View {
     private Vector<Float> mVectorY;
     private float x = 10;
     private float y = 10;
+    private Bitmap bitmap;
 
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        mVectorX = new Vector<Float>();
-        mVectorY = new Vector<Float>();
-
-//        Canvas canvas = getHolder().lockCanvas();
-//        canvas.drawColor(Color.WHITE);
-//        getHolder().unlockCanvasAndPost(canvas);
+        bitmap = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
 
         Paint black = new Paint();
-        black.setARGB(255, 0, 0, 0);
 
-        for (int i = 0; i < mVectorX.size(); i++) {
-            canvas.drawCircle(mVectorX.get(i), mVectorY.get(i), 5, black);
-        }
+        int color = Color.argb(255, 0, 0, 0);
 
+        super.onDraw(canvas);
+
+        //canvas.drawCircle(10, 10, 50, black);
+
+//        for (int i = 0; i < 100; i ++) {
+//            for (int j = 0; j < 100; j++) {
+//                Log.d(TAG, "Before setting pixel:" + bitmap.getPixel(i, j));
+//
+//                bitmap.setPixel(i, j, color);
+//
+//                Log.d(TAG, "After setting pixel:" + bitmap.getPixel(i, j));
+//            }
+//        }
+
+
+            for (int i = -5; i < 5; i++) {
+                for (int j = -5; j < 5; j++) {
+                    if (x + i >= 0 && y + j >= 0) {
+                        bitmap.setPixel((int) x + i, (int) y + j, color);
+                    }
+                }
+            }
+
+        Log.d(TAG, "Height: " + canvas.getHeight() + ", Width: " + canvas.getWidth());
+        canvas.drawBitmap(bitmap, 0, 0, black);
     }
 
 
-    public void addX(float x) {
-        mVectorX.add(x);
+    public void setX(float x_pos) {
+        x = x_pos;
     }
 
-    public void addY(float y) {
-        mVectorY.add(y);
+    public void setY(float y_pos) {
+        y = y_pos;
+
     }
 }
