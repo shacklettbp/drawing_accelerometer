@@ -19,6 +19,8 @@ public class CanvasView extends View {
     private Vector<Float> mVectorY;
     private float x = 10;
     private float y = 10;
+    private int radius = 5;
+    
     private Bitmap bitmap;
 
     public CanvasView(Context context, AttributeSet attrs) {
@@ -49,8 +51,8 @@ public class CanvasView extends View {
 //        }
 
 
-            for (int i = -5; i < 5; i++) {
-                for (int j = -5; j < 5; j++) {
+            for (int i = -radius; i < radius; i++) {
+                for (int j = -radius; j < radius; j++) {
                     if (x + i >= 0 && y + j >= 0) {
                         bitmap.setPixel((int) x + i, (int) y + j, color);
                     }
