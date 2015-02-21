@@ -125,7 +125,7 @@ static void init(void)
 	cl_set_debug(true);
 
 	accel_data_service_subscribe(NUM_SAMPLES, (AccelDataHandler)accel_new_data);
-	accel_service_set_sampling_rate(ACCEL_SAMPLING_100HZ);
+	accel_service_set_sampling_rate(ACCEL_SAMPLING_10HZ);
 
 	app_comm_set_sniff_interval(SNIFF_INTERVAL_REDUCED);
 	app_message_register_inbox_received(in_received_handler);
