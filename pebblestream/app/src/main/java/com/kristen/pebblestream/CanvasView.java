@@ -28,6 +28,9 @@ public class CanvasView extends View {
     private float y = 10;
     private int radius = 5;
     
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
     private Bitmap bitmap;
     private int size_of_square = 5;
