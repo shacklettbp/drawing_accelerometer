@@ -28,7 +28,7 @@ public class Landing extends Activity {
     public static final String TAG = Landing.class.getSimpleName();
     private static final int NUM_SAMPLES = 15;
     private static final int GRAPH_HISTORY = 200;
-    private static final double FRAME_TIME = 1.0 / 36.0;
+    private static final double FRAME_TIME = 1.0 / 10.0;
     private final double alpha = 0.5;
 
     //State
@@ -61,7 +61,7 @@ public class Landing extends Activity {
     private double grav_x;
     private double grav_y;
     private double grav_z;
-    private double multiplier = 3;
+    private double multiplier = 1;
 
     //Other members
     private PebbleDataReceiver receiver;
@@ -155,13 +155,13 @@ public class Landing extends Activity {
 //                latest_data[2] -= grav_z;
 
 
-                pos_x += prev_vel_x * FRAME_TIME + (FRAME_TIME * multiplier * latest_data[0])/2;
+                pos_x += prev_vel_x * FRAME_TIME + (Math.pow(FRAME_TIME, 2) * multiplier * latest_data[0])/2;
                 prev_vel_x += latest_data[0] * FRAME_TIME;
 
-                pos_y += prev_vel_y * FRAME_TIME + (FRAME_TIME * multiplier * latest_data[1])/2;
+                pos_y += prev_vel_y * FRAME_TIME + (Math.pow(FRAME_TIME, 2) * multiplier * latest_data[1])/2;
                 prev_vel_y += latest_data[1] * FRAME_TIME;
 
-//                Log.d(TAG, "X: " + pos_x + ", Y: " + pos_y);
+                Log.d(TAG, "X: " + pos_x + ", Y: " + pos_y);
 
                 // positions in canvas axis are switched
                 mCanvasView.setX(pos_y);
